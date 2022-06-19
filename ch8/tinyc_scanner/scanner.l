@@ -55,6 +55,7 @@ int main(int argc, char* argv[]) {
     int token;
     init_scanner();
     while (token = yylex()) {
+        printf("%-10d", cur_line_num);
         print_token(token);
         puts(yytext);
     }
@@ -62,7 +63,7 @@ int main(int argc, char* argv[]) {
 }
 
 void init_scanner() {
-    printf("%-20s%s\n", "TOKEN-TYPE", "TOKEN-VALUE");
+    printf("%-10s%-20s%s\n", "Line", "TOKEN-TYPE", "TOKEN-VALUE");
     printf("-------------------------------------------------\n");
 }
 
